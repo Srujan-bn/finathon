@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | NIDHI-SETU</title>
+    <link rel="stylesheet" href="../css/styles2.css">
+</head>
+<body>
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
+
+    <div class="container">
+        <div class="login-options">
+            <button id="memberLoginBtn" class="btn">Member Login</button>
+            <button id="groupLoginBtn" class="btn">Group Login</button>
+        </div>
+
+        <div class="login-form-container">
+            <div id="loginFormDisplay">
+                <form id="memberLoginForm">
+                    <h2>Member Login</h2>
+                    <label for="memberId">Member ID:</label>
+                    <input type="text" id="memberId" placeholder="Enter Member ID" required>
+                    
+                    <label for="memberPassword">Member Password:</label>
+                    <input type="password" id="memberPassword" placeholder="Enter Member Password" required>
+                    
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Google Translate Initialization
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,kn,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        // Existing JavaScript Code
+        document.addEventListener("DOMContentLoaded", () => {
+            const memberLoginBtn = document.getElementById("memberLoginBtn");
+            const groupLoginBtn = document.getElementById("groupLoginBtn");
+            const loginFormDisplay = document.getElementById("loginFormDisplay");
+
+            const groupLoginForm = `
+                <form id="groupLoginForm">
+                    <h2>Group Login</h2>
+                    <label for="groupName">Group Name:</label>
+                    <input type="text" id="groupName" placeholder="Enter Group Name" required>
+                    
+                    <label for="groupPassword">Group Password:</label>
+                    <input type="password" id="groupPassword" placeholder="Enter Group Password" required>
+                    
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            `;
+
+            memberLoginBtn.addEventListener("click", () => {
+                loginFormDisplay.innerHTML = `
+                    <form id="memberLoginForm">
+                        <h2>Member Login</h2>
+                        <label for="memberId">Member ID:</label>
+                        <input type="text" id="memberId" placeholder="Enter Member ID" required>
+                        
+                        <label for="memberPassword">Member Password:</label>
+                        <input type="password" id="memberPassword" placeholder="Enter Member Password" required>
+                        
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                `;
+            });
+
+            groupLoginBtn.addEventListener("click", () => {
+                loginFormDisplay.innerHTML = groupLoginForm;
+            });
+
+            loginFormDisplay.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const formId = event.target.id;
+                const responseMessage = document.createElement("p");
+
+                if (formId === "memberLoginForm") {
+                    const memberId = document.getElementById("memberId").value;
+                    const memberPassword = document.getElementById("memberPassword").value;
+
+                    if (memberId && memberPassword) {
+                        responseMessage.textContent = "Member Login Successful!";
+                    } else {
+                        responseMessage.textContent = "Invalid Member Credentials!";
+                    }
+                } else if (formId === "groupLoginForm") {
+                    const groupName = document.getElementById("groupName").value;
+                    const groupPassword = document.getElementById("groupPassword").value;
+
+                    if (groupName && groupPassword) {
+                        responseMessage.textContent = "Group Login Successful!";
+                    } else {
+                        responseMessage.textContent = "Invalid Group Credentials!";
+                    }
+                }
+
+                loginFormDisplay.appendChild(responseMessage);
+            });
+        });
+    </script>
+</body>
+</html>

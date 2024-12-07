@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>Welcome | NIDHI-SETU</title>
+</head>
+<body>
+  <!-- Language Selection -->
+  <div id="google_translate_element"></div>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,kn,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-links">
+      <button class="animated-button" onclick="window.location.href='register-group.html'">SIGN UP</button>
+      <button class="animated-button" onclick="window.location.href='admin-login.html'">LOGIN</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <!-- Left Column -->
+    <div class="left-column">
+      <button class="left-button" onclick="window.location.href='pictures.html'">Pictures</button>
+      <button class="left-button" onclick="window.location.href='about.html'">About</button>
+    </div>
+
+    <!-- Project Title -->
+    <div class="project-title-container">
+      <h1 class="project-title">NIDHI-SETU</h1>
+    </div>
+  </div>
+</body>
+</html>
